@@ -16,14 +16,17 @@ public class VueHorloge extends JFrame {
 	
 	public VueHorloge() {
 		
+		//Initialisation du JFrame
 		this.setTitle("Horloge");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
 		this.setSize(200, 80);
 		
+		//Initialisation de l'horloge
 		this.horloge = new Horloge();
 		
+		//Ajout d'un observateur sur l'horloge
 		this.horloge.addObservateur(new Observateur() {
 
 			@Override
@@ -36,15 +39,19 @@ public class VueHorloge extends JFrame {
 			
 		});
 		
+		//Initialisation du JLabel
 		Font police = new Font("DS-Digital", Font.TYPE1_FONT, 30);
 		this.label.setFont(police);
 		this.label.setHorizontalAlignment(JLabel.CENTER);
+		
+		//Ajout du JLabel à la JFrame
 		this.getContentPane().add(this.label, BorderLayout.CENTER);
 		this.setVisible(true);
 		this.horloge.run();		
 		
 	}
 
+	//Lancement du programme
 	public static void main(String[] args) {
 
 		VueHorloge horloge = new VueHorloge();
